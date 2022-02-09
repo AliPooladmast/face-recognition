@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/face-recognition/static/css/main.1b388cb0.chunk.css",
-    "main.js": "/face-recognition/static/js/main.07698278.chunk.js",
-    "main.js.map": "/face-recognition/static/js/main.07698278.chunk.js.map",
+    "main.js": "/face-recognition/static/js/main.b7e5f416.chunk.js",
+    "main.js.map": "/face-recognition/static/js/main.b7e5f416.chunk.js.map",
     "runtime-main.js": "/face-recognition/static/js/runtime-main.51705bfb.js",
     "runtime-main.js.map": "/face-recognition/static/js/runtime-main.51705bfb.js.map",
     "static/css/2.6d7c7915.chunk.css": "/face-recognition/static/css/2.6d7c7915.chunk.css",
@@ -14,13 +14,13 @@
     "static/css/2.6d7c7915.chunk.css.map": "/face-recognition/static/css/2.6d7c7915.chunk.css.map",
     "static/css/main.1b388cb0.chunk.css.map": "/face-recognition/static/css/main.1b388cb0.chunk.css.map",
     "static/js/2.4167669e.chunk.js.LICENSE.txt": "/face-recognition/static/js/2.4167669e.chunk.js.LICENSE.txt",
-    "static/media/face_detect.3b574e75.webp": "/face-recognition/static/media/face_detect.3b574e75.webp"
+    "static/media/face_detect.48392457.webp": "/face-recognition/static/media/face_detect.48392457.webp"
   },
   "entrypoints": [
     "static/js/runtime-main.51705bfb.js",
     "static/css/2.6d7c7915.chunk.css",
     "static/js/2.4167669e.chunk.js",
     "static/css/main.1b388cb0.chunk.css",
-    "static/js/main.07698278.chunk.js"
+    "static/js/main.b7e5f416.chunk.js"
   ]
 }
