@@ -15,11 +15,14 @@ const app = new Clarifai.App({
 });
 
 function App() {
-  const [imageURL, setImageURL] = useState("");
+  const [imageURL, setImageURL] = useState(
+    "https://static.techspot.com/images2/news/bigimage/2020/06/2020-06-08-image-8.jpg"
+  );
   const [boxState, setBoxes] = useState([]);
-  const [route, setRoute] = useState("signin");
+  const [route, setRoute] = useState("home");
   const [isSignedIn, setIsSignedIn] = useState("false");
   const [faceNumber, setFaceNumber] = useState(0);
+  const [detectClick, setDetectClick] = useState("false");
   const imageRef = useRef();
 
   const onInputChange = (event) => {
@@ -46,16 +49,20 @@ function App() {
   };
 
   const onButtonClick = () => {
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
-      .then((response) => boxCoordinates(response))
-      .catch((err) => console.log(err));
+    setDetectClick((state) => !state);
   };
 
   const onRouteChange = (route) => {
     route === "home" ? setIsSignedIn(true) : setIsSignedIn(false);
     setRoute(route);
   };
+
+  useEffect(() => {
+    app.models
+      .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
+      .then((response) => boxCoordinates(response))
+      .catch((err) => console.log(err));
+  }, [detectClick]);
 
   return (
     <div className="App">
