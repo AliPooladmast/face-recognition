@@ -24,7 +24,6 @@ function App() {
 
   const onInputChange = (event) => {
     setImageURL(event.target.value);
-    // console.log(event);
   };
 
   const boxCoordinates = (data) => {
@@ -43,13 +42,10 @@ function App() {
       };
     });
     setFaceNumber(boxes.length);
-    // console.log(faceNumber);
     setBoxes(boxes);
   };
 
   const onButtonClick = () => {
-    // console.log("click");
-
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
       .then((response) => boxCoordinates(response))

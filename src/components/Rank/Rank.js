@@ -3,7 +3,6 @@ import "./Rank.css";
 
 const Rank = (props) => {
   const { faceNumber } = props;
-  console.log(faceNumber);
   return (
     <div className="rank">
       <div className="  f2">{"Dear User, Welcome"}</div>
