@@ -15,4 +15,17 @@
 
 .detect {
   min-width: 80px;
+  font-size: 0.75rem;
+}
+.pasteForm {
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 350px) {
+  .detect {
+    font-size: 1rem;
+  }
+  .pasteForm {
+    font-size: 1rem;
+  }
 }

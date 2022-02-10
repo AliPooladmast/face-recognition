@@ -13,13 +13,13 @@ const ImageLinkForm = (props) => {
       <div className="center">
         <div className="form pa4 br3 shadow-5 center">
           <input
-            className="f6 pa2 w-70 center"
+            className="pasteForm pa2 w-70 center"
             type="text"
             onChange={onInputChange}
             placeholder="Paste here"
           />
           <button
-            className="detect w-30 grow f7 link ph3 pv2 dib white bg-light-purple"
+            className="detect w-30 grow link ph3 pv2 dib white bg-light-purple"
             onClick={onButtonClick}
           >
             Detect
