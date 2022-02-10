@@ -3,8 +3,10 @@ import "./FaceRecognition.css";
 
 const FaceRecognition = React.forwardRef((props, ref) => {
   const { imageURL, boxState } = props;
-  const boxRectangles = boxState.map((item) => (
+  const boxRectangles = boxState.map((item, index) => (
     <div
+      id={index}
+      key={index}
       className="boundingBox"
       style={{
         bottom: item.bottomRow,

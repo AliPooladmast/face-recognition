@@ -19,8 +19,8 @@ function App() {
   const [boxState, setBoxes] = useState([]);
   const [route, setRoute] = useState("signin");
   const [isSignedIn, setIsSignedIn] = useState("false");
+  const [faceNumber, setFaceNumber] = useState(0);
   const imageRef = useRef();
-  let faceNumber;
 
   const onInputChange = (event) => {
     setImageURL(event.target.value);
@@ -42,8 +42,8 @@ function App() {
         bottomRow: height - boundingBox.bottom_row * height,
       };
     });
-    faceNumber = boxes.length;
-    console.log(faceNumber);
+    setFaceNumber(boxes.length);
+    // console.log(faceNumber);
     setBoxes(boxes);
   };
 
