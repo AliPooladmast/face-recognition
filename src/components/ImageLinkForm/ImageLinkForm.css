@@ -1,24 +1,63 @@
-.form {
-  width: 700px;
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
+.container {
+  padding: 0 1rem;
 }
-
 .imageLink__text {
-  color: rgb(8, 2, 46);
-  padding: 0 2rem;
+  font-size: 1rem;
+  color: rgb(10, 2, 66);
+  /* padding: 0 2rem; */
 }
 
-.detect {
-  min-width: 80px;
-  font-size: 0.75rem;
+.input-group {
+  border: 1px solid dodgerblue;
+  border-radius: 40px;
+  display: flex;
+  background: #fff;
+  max-width: 700px;
+  margin: 0 auto;
 }
-.pasteForm {
-  font-size: 0.75rem;
+
+.input {
+  border-radius: 40px;
+  border: 1px solid dodgerblue;
+  font-size: 1rem;
+  outline: 0;
+}
+
+.input-group .input {
+  border: 0;
+  flex-grow: 1;
+  padding: 0 1rem;
+  width: 0;
+}
+
+::placeholder {
+  color: rgb(150, 150, 150);
+}
+
+.btn {
+  border-radius: 40px;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  outline: 0;
+  padding: 0.5rem 4vw;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: rgb(163, 19, 192);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: rgb(196, 56, 224);
+}
+
+.input-group .btn {
+  margin: 2px;
 }
 
 @media screen and (min-width: 350px) {

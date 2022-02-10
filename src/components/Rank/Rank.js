@@ -5,8 +5,8 @@ const Rank = (props) => {
   const { faceNumber } = props;
   return (
     <div className="rank">
-      <div className="  f2">{"Dear User, Welcome"}</div>
-      <div className="  f3">{`${faceNumber} faces detected`}</div>
+      <div className="user">{"Dear User, Welcome"}</div>
+      <div className="facenumber">{`${faceNumber} faces detected`}</div>
     </div>
   );
 };

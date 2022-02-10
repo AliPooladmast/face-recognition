@@ -1,5 +1,11 @@
 .rank {
   font-weight: 700;
   color: rgb(0, 0, 70);
-  padding: 0 2rem;
+  padding: 0 1rem;
+}
+.user {
+  font-size: 1.2rem;
+}
+.facenumber {
+  font-size: 1rem;
 }

@@ -4,27 +4,22 @@ import "./ImageLinkForm.css";
 const ImageLinkForm = (props) => {
   const { onInputChange, onButtonClick } = props;
   return (
-    <div className="f3">
+    <div className="container">
       <p className="imageLink__text">
         {
           "Please enter the picture link here so that the AI recognize the faces"
         }
       </p>
-      <div className="center">
-        <div className="form pa4 br3 shadow-5 center">
-          <input
-            className="pasteForm pa2 w-70 center"
-            type="text"
-            onChange={onInputChange}
-            placeholder="Paste here"
-          />
-          <button
-            className="detect w-30 grow link ph3 pv2 dib white bg-light-purple"
-            onClick={onButtonClick}
-          >
-            Detect
-          </button>
-        </div>
+      <div class="input-group">
+        <input
+          type="text"
+          class="input"
+          placeholder="Paste here"
+          onChange={onInputChange}
+        />
+        <button class="btn btn--primary" onClick={onButtonClick}>
+          Detect
+        </button>
       </div>
     </div>
   );
