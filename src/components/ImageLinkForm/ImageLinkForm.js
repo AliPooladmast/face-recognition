@@ -1,21 +1,24 @@
 import React from "react";
 import "./ImageLinkForm.css";
 
-const ImageLinkForm = ({ onInputChange, onButtonClick }) => {
+const ImageLinkForm = (props) => {
+  const { onInputChange, onButtonClick } = props;
   return (
     <div className="f3">
       <p className="imageLink__text">
-        {"The face recognition AI will detect faces in your pictures"}
+        {
+          "Please enter the picture link here so that the AI recognize the faces"
+        }
       </p>
       <div className="center">
-        <div class="form pa4 br3 shadow-5 center">
+        <div className="form pa4 br3 shadow-5 center">
           <input
-            class="f4 pa2 w-70 center"
+            className="f4 pa2 w-70 center"
             type="text"
             onChange={onInputChange}
           />
           <button
-            class="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
             onClick={onButtonClick}
           >
             Detect

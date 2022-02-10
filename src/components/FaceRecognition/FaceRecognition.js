@@ -1,7 +1,19 @@
 import React from "react";
 import "./FaceRecognition.css";
 
-const FaceRecognition = ({ imageURL, box }) => {
+const FaceRecognition = React.forwardRef((props, ref) => {
+  const { imageURL, boxState } = props;
+  const boxRectangles = boxState.map((item) => (
+    <div
+      className="boundingBox"
+      style={{
+        bottom: item.bottomRow,
+        left: item.leftCol,
+        right: item.rightCol,
+        top: item.topRow,
+      }}
+    ></div>
+  ));
   return (
     <div className="center ma">
       <div className="absolute mt4">
@@ -11,19 +23,12 @@ const FaceRecognition = ({ imageURL, box }) => {
           alt=""
           width="500px"
           height="auto"
+          ref={ref}
         />
-        <div
-          className="boundingBox"
-          style={{
-            bottom: box.bottomRow,
-            left: box.leftCol,
-            right: box.rightCol,
-            top: box.topRow,
-          }}
-        ></div>
+        <div>{boxRectangles}</div>
       </div>
     </div>
   );
-};
+});
 
 export default FaceRecognition;

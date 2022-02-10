@@ -1,11 +1,12 @@
 import React from "react";
 import "./Rank.css";
 
-const Rank = () => {
+const Rank = (props) => {
+  const { faceNumber } = props;
   return (
-    <div class="rank">
-      <div class="  f3">{"Dear user, your rank is ..."}</div>
-      <div class="  f1">{"#5"}</div>
+    <div className="rank">
+      <div className="  f2">{"Dear User, Welcome"}</div>
+      <div className="  f3">{`# faces is detected`}</div>
     </div>
   );
 };
