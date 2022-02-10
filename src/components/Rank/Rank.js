@@ -6,7 +6,7 @@ const Rank = (props) => {
   return (
     <div className="rank">
       <div className="  f2">{"Dear User, Welcome"}</div>
-      <div className="  f3">{`${faceNumber} faces is detected`}</div>
+      <div className="  f3">{`${faceNumber} faces detected`}</div>
     </div>
   );
 };

@@ -10,4 +10,9 @@
 
 .imageLink__text {
   color: rgb(8, 2, 46);
+  padding: 0 2rem;
+}
+
+.detect {
+  min-width: 80px;
 }

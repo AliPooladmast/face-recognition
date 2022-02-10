@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Courier New", monospace, source-code-pro, Menlo, Monaco,
