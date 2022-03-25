@@ -51,8 +51,23 @@ function App() {
         bottomRow: height - boundingBox.bottom_row * height,
       };
     });
-    setFaceNumber(boxes.length);
+
     setBoxes(boxes);
+    // setFaceNumber(boxes.length);
+
+    fetch("http://localhost:3000/image", {
+      method: "put",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: user.id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((count) => {
+        setUser((user) => {
+          return { ...user, enteries: count };
+        });
+      });
   };
 
   const onButtonClick = () => {
@@ -75,10 +90,10 @@ function App() {
   };
 
   useEffect(() => {
-    // app.models
-    //   .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
-    //   .then((response) => boxCoordinates(response))
-    //   .catch((err) => console.log(err));
+    app.models
+      .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
+      .then((response) => boxCoordinates(response))
+      .catch((err) => console.log(err));
   }, [detectClick]);
 
   return (
@@ -88,7 +103,7 @@ function App() {
       {route === "home" ? (
         <div>
           <Logo />
-          <Rank faceNumber={faceNumber} />
+          <Rank faceNumber={user.enteries} name={user.name} />
           <ImageLinkForm
             onInputChange={onInputChange}
             onButtonClick={onButtonClick}
@@ -100,7 +115,7 @@ function App() {
           />
         </div>
       ) : route === "signin" ? (
-        <SignIn onRouteChange={onRouteChange} />
+        <SignIn onRouteChange={onRouteChange} loadUser={loadUser} />
       ) : (
         <Register onRouteChange={onRouteChange} loadUser={loadUser} />
       )}

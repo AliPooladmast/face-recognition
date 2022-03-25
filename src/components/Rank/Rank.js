@@ -2,10 +2,10 @@ import React from "react";
 import "./Rank.css";
 
 const Rank = (props) => {
-  const { faceNumber } = props;
+  const { faceNumber, name } = props;
   return (
     <div className="rank">
-      <div className="user">{"Dear User, Welcome"}</div>
+      <div className="user">{`Dear ${name}, Welcome`}</div>
       <div className="facenumber">{`${faceNumber} faces detected`}</div>
     </div>
   );
