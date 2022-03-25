@@ -19,10 +19,17 @@ function App() {
     "https://static.techspot.com/images2/news/bigimage/2020/06/2020-06-08-image-8.jpg"
   );
   const [boxState, setBoxes] = useState([]);
-  const [route, setRoute] = useState("home");
+  const [route, setRoute] = useState("signin");
   const [isSignedIn, setIsSignedIn] = useState("false");
   const [faceNumber, setFaceNumber] = useState(0);
   const [detectClick, setDetectClick] = useState("false");
+  const [user, setUser] = useState({
+    id: "",
+    name: "",
+    email: "",
+    enteries: 0,
+    joined: "",
+  });
   const imageRef = useRef();
 
   const onInputChange = (event) => {
@@ -57,11 +64,21 @@ function App() {
     setRoute(route);
   };
 
+  const loadUser = (data) => {
+    setUser({
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      enteries: data.enteries,
+      joined: data.joined,
+    });
+  };
+
   useEffect(() => {
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
-      .then((response) => boxCoordinates(response))
-      .catch((err) => console.log(err));
+    // app.models
+    //   .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
+    //   .then((response) => boxCoordinates(response))
+    //   .catch((err) => console.log(err));
   }, [detectClick]);
 
   return (
@@ -85,7 +102,7 @@ function App() {
       ) : route === "signin" ? (
         <SignIn onRouteChange={onRouteChange} />
       ) : (
-        <Register onRouteChange={onRouteChange} />
+        <Register onRouteChange={onRouteChange} loadUser={loadUser} />
       )}
     </div>
   );
