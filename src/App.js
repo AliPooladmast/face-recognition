@@ -14,24 +14,21 @@ const app = new Clarifai.App({
   apiKey: "5e6f5b8dcac84dff84f9c84ab458d8ab",
 });
 
+const initialUser = {
+  id: "",
+  name: "",
+  email: "",
+  enteries: 0,
+  joined: "",
+};
+
 function App() {
-  const [imageURL, setImageURL] = useState(
-    "https://static.techspot.com/images2/news/bigimage/2020/06/2020-06-08-image-8.jpg"
-  );
+  const [imageURL, setImageURL] = useState("");
   const [boxState, setBoxes] = useState([]);
   const [route, setRoute] = useState("signin");
   const [isSignedIn, setIsSignedIn] = useState("false");
-  const [faceNumber, setFaceNumber] = useState(0);
-  const [detectClick, setDetectClick] = useState("false");
-  const [user, setUser] = useState({
-    id: "",
-    name: "",
-    email: "",
-    enteries: 0,
-    joined: "",
-  });
+  const [user, setUser] = useState(initialUser);
   const imageRef = useRef();
-
   const onInputChange = (event) => {
     setImageURL(event.target.value);
   };
@@ -67,15 +64,26 @@ function App() {
         setUser((user) => {
           return { ...user, enteries: count };
         });
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   const onButtonClick = () => {
-    setDetectClick((state) => !state);
+    app.models
+      .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
+      .then((response) => boxCoordinates(response))
+      .catch((err) => console.log(err));
   };
 
   const onRouteChange = (route) => {
-    route === "home" ? setIsSignedIn(true) : setIsSignedIn(false);
+    if (route === "home") {
+      setIsSignedIn(true);
+    } else {
+      setIsSignedIn(false);
+      setUser(initialUser);
+      setImageURL("");
+      setBoxes([]);
+    }
     setRoute(route);
   };
 
@@ -88,13 +96,6 @@ function App() {
       joined: data.joined,
     });
   };
-
-  useEffect(() => {
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
-      .then((response) => boxCoordinates(response))
-      .catch((err) => console.log(err));
-  }, [detectClick]);
 
   return (
     <div className="App">
