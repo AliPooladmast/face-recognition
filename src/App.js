@@ -69,9 +69,15 @@ function App() {
   };
 
   const onButtonClick = () => {
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, imageURL)
-      .then((response) => boxCoordinates(response))
+    fetch("http://localhost:3000/imageurl", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        imageURL,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => boxCoordinates(result))
       .catch((err) => console.log(err));
   };
 
