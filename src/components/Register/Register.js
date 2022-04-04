@@ -6,7 +6,7 @@ const Register = ({ onRouteChange, loadUser }) => {
   const [registerPassword, setRegisterPassword] = useState("");
 
   const onSubmit = () => {
-    fetch("http://localhost:3000/register", {
+    fetch("https://frozen-caverns-42706.herokuapp.com/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

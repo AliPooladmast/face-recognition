@@ -52,7 +52,7 @@ function App() {
     setBoxes(boxes);
     // setFaceNumber(boxes.length);
 
-    fetch("http://localhost:3000/image", {
+    fetch("https://frozen-caverns-42706.herokuapp.com/image", {
       method: "put",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -69,7 +69,7 @@ function App() {
   };
 
   const onButtonClick = () => {
-    fetch("http://localhost:3000/imageurl", {
+    fetch("https://frozen-caverns-42706.herokuapp.com/imageurl", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
